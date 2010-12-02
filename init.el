@@ -6,9 +6,9 @@
 ;
 (progn (cd "~"))
 
-; add .emacs.d/system-dependent to load-path
+; add .emacs.d/preference to load-path
 (setq load-path 
-      (cons (expand-file-name "~/.emacs.d/system-dependent/")
+      (cons (expand-file-name "~/.emacs.d/preference/")
 	    load-path))
 
 ; font-lock-mode
@@ -41,6 +41,11 @@
 	     (setq js-indent-level 2)
 	     ))
 
+(add-hook 'html-mode-hook
+	  '(lambda ()
+	     (setq sgml-basic-offset 2)
+	     (setq indent-tabs-mode nil)))
+
 ; do not show startup message
 (setq inhibit-startup-message t)
 
@@ -51,6 +56,7 @@
 (tool-bar-mode 0)
 
 ; load init file for each environment
-(if (file-exists-p "~/.emacs.d/system-dependent/system-dependent.el")
-    (load-file "~/.emacs.d/system-dependent/system-dependent.el"))
+(load "init-system-dependent")
 
+; autoinsert init
+(load "init-autoinsert")
