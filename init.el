@@ -60,3 +60,6 @@
 
 ; autoinsert init
 (load "init-autoinsert")
+
+; yasnippet init
+(load "init-yasnippet")

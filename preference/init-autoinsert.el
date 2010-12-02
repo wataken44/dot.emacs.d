@@ -15,6 +15,7 @@
       (nconc '(
                ("\\.cpp$" . ["template.cpp" replace-template])
                ("\\.h$"   . ["template.h" replace-template])
+	       ("\\.py$"  . ["template.py" replace-template])
                ) auto-insert-alist))
 
 (require 'cl)
@@ -33,5 +34,3 @@
   (goto-char (point-max)))
 (add-hook 'find-file-not-found-hooks 'auto-insert)
 
-;(define-auto-insert "\.py" "my-python-template.py")
-;(define-auto-insert "\.php" "my-php-template.php")
