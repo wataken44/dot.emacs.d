@@ -63,3 +63,6 @@
 
 ; yasnippet init
 (load "init-yasnippet")
+
+; google-c-style init
+(load "init-google-c-style")
