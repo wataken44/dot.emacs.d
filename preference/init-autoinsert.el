@@ -1,4 +1,6 @@
 
+;; imported from http://d.hatena.ne.jp/higepon/20080731/1217491155
+
 (require 'autoinsert)
 
 ;; use auto-insert
@@ -8,7 +10,7 @@
 (setq auto-insert-directory "~/.emacs.d/resource/auto-insert/")
 
 ;; do not prompt before insert
-;(setq auto-insert-query nil)
+;; (setq auto-insert-query nil)
 
 ;; templates
 (setq auto-insert-alist
@@ -32,5 +34,7 @@
           (replace-string (car c) (funcall (cdr c)) nil)))
     template-replacements-alists)
   (goto-char (point-max)))
-(add-hook 'find-file-not-found-hooks 'auto-insert)
+
+;; add-hook is called by default, so this code is not necessary
+;; (add-hook 'find-file-not-found-hooks 'auto-insert)
 
