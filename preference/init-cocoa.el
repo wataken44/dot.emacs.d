@@ -7,3 +7,6 @@
                   nil
                   'append)
 (add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))
+
+; show menubar (at top of display, not in frame)
+(menu-bar-mode 1)
