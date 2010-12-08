@@ -26,7 +26,9 @@
 
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/site-lisp/yasnippet-0.6.1c/snippets")
+
+;; use my snippets(almost all snippets are copy of original)
+(yas/load-directory "~/.emacs.d/resource/yasnippet/snippets")
 
 (provide 'init-yasnippet)
 ;;; init-yasnippet.el ends here

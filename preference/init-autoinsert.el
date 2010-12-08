@@ -5,7 +5,7 @@
 (auto-insert-mode)
 
 ;; template directory(last slash is important) 
-(setq auto-insert-directory "~/.emacs.d/auto-insert/")
+(setq auto-insert-directory "~/.emacs.d/resource/auto-insert/")
 
 ;; do not prompt before insert
 ;(setq auto-insert-query nil)
