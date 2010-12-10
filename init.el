@@ -37,16 +37,19 @@
 	     (setq indent-tabs-mode nil)))
 
 ; miscellanous init
-(load "init-misc")
+(require 'init-misc)
 
 ; system-dependent init
-(load "init-system-dependent")
+(require 'init-system-dependent)
 
 ; autoinsert init
-(load "init-autoinsert")
+(require 'init-autoinsert)
 
 ; yasnippet init
-(load "init-yasnippet")
+(require 'init-yasnippet)
 
 ; google-c-style init
-(load "init-google-c-style")
+(require 'init-google-c-style)
+
+; org-mode init
+(require 'init-org)

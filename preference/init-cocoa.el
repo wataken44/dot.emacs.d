@@ -10,3 +10,5 @@
 
 ; show menubar (at top of display, not in frame)
 (menu-bar-mode 1)
+
+(provide 'init-cocoa)

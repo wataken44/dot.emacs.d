@@ -1,2 +1,4 @@
 (if (featurep 'ns)
-    (load "init-cocoa.el"))
+    (require 'init-cocoa))
+
+(provide 'init-system-dependent)

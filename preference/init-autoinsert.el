@@ -38,3 +38,4 @@
 ;; add-hook is called by default, so this code is not necessary
 ;; (add-hook 'find-file-not-found-hooks 'auto-insert)
 
+(provide 'init-autoinsert)

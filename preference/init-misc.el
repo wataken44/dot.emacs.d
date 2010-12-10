@@ -25,3 +25,6 @@
 
 ; do not use tab by default
 (setq-default indent-tabs-mode nil)
+
+
+(provide 'init-misc)
