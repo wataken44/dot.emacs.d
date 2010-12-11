@@ -13,8 +13,7 @@
   (setq buffer-list-length (length (buffer-list))) 
   (setq current-buffer-index 
         (- buffer-list-length
-            (length (member (current-buffer) (buffer-list)))
-            )
+           (length (member (current-buffer) (buffer-list))))
         )
   ;; search and jump to next user buffer
   ;; start from current-buffer-index + 1 and wrap around
