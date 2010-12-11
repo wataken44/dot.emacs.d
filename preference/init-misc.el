@@ -25,6 +25,9 @@
 ; do not show menu-bar
 (menu-bar-mode 0)
 
+; region mark visible
+(setq-default transient-mark-mode t)
+
 ; do not use tab by default
 (setq-default indent-tabs-mode nil)
 
