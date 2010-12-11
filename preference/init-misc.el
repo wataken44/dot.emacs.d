@@ -37,7 +37,7 @@
 (global-set-key "\C-c\M-r" 'replace-regexp)
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-t" 'next-user-buffer)
-(global-set-key "\C-T" 'next-buffer) 
+(global-set-key "\C-cT" 'next-buffer)
 
 ; do not show startup message
 (setq inhibit-startup-message t)
