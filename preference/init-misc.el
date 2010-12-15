@@ -5,23 +5,31 @@
 (global-font-lock-mode t)
 
 ; define function
+; define function
+; compare buffer with buffer-name
+; used in next-user-buffer
+(defun buffer-name-less (left-buffer right-buffer)
+  (string< (buffer-name left-buffer) (buffer-name right-buffer)))
+
+;; switch to next user's buffer
+;; name of user's buffer start with [^ *] 
 (defun next-user-buffer ()
-  ;; switch to next user's buffer
-  ;; name of user's buffer start with [^ *]
   (interactive)
   ;; exceptional buffer to be switched
-  (setq no-ignore-buffer-alist '("*shell*"))
-  ;; get current buffer index in buffer-list
-  (setq buffer-list-length (length (buffer-list))) 
+  (setq no-ignore-buffer-alist '("*shell*" "*scratch*"))
+  ;; sort buffer-list
+  (setq sorted-buffer-alist (sort (buffer-list) 'buffer-name-less))
+  ;; get current buffer index in sorted buffer-list
+  (setq buffer-list-length (length sorted-buffer-alist)) 
   (setq current-buffer-index 
         (- buffer-list-length
-           (length (member (current-buffer) (buffer-list)))))
+           (length (member (current-buffer) sorted-buffer-alist))))
   ;; search and jump to next user buffer
   ;; start from current-buffer-index + 1 and wrap around
   (dotimes (i buffer-list-length)
     (setq buffer-index
           (% (+ i current-buffer-index 1) buffer-list-length))
-    (setq dest-buffer (nth buffer-index (buffer-list)))
+    (setq dest-buffer (nth buffer-index sorted-buffer-alist))
     (setq dest-buffer-name (buffer-name dest-buffer))
     (if (or (string-match-p "^[^ *]" dest-buffer-name)
             (member dest-buffer-name no-ignore-buffer-alist))
