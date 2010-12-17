@@ -11,6 +11,11 @@
       (cons (expand-file-name "~/.emacs.d/preference/")
 	    load-path))
 
+; add .emacs.d/auto-install to load-path
+(setq load-path 
+      (cons (expand-file-name "~/.emacs.d/auto-install/")
+	    load-path))
+
 ; add-hook for each mode
 (add-hook 'python-mode-hook
 	  '(lambda ()
@@ -53,3 +58,6 @@
 
 ; org-mode init
 (require 'init-org)
+
+; auto-install init
+(require 'init-auto-install)
