@@ -1,6 +1,5 @@
 
 (require 'anything-startup)
-(require 'anything-config)
 
 (setq anything-sources 
       '(anything-c-source-bookmarks
@@ -15,6 +14,16 @@
         anything-c-source-man-pages
         anything-c-source-recentf
         ))
+
+(require 'anything-complete)
+
+(anything-lisp-complete-symbol-set-timer 1)
+(anything-read-string-mode 1)
+
+(anything-lisp-complete-symbol-set-timer 150)
+
+(setq anything-c-adaptive-history-file 
+      "~/.emacs.d/preference/anything-c-adaptive-history")
 
 (provide 'init-anything)
 

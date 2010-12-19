@@ -61,3 +61,6 @@
 
 ; auto-install init
 (require 'init-auto-install)
+
+; anything init
+(require 'init-anything)
