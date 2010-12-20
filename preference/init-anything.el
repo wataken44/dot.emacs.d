@@ -23,7 +23,7 @@
 (anything-lisp-complete-symbol-set-timer 150)
 
 (setq anything-c-adaptive-history-file 
-      "~/.emacs.d/preference/anything-c-adaptive-history")
+      "~/.emacs.d/work/anything-c-adaptive-history")
 
 (provide 'init-anything)
 

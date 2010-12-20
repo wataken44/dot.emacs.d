@@ -64,3 +64,6 @@
 
 ; anything init
 (require 'init-anything)
+
+; auto-complete init
+(require 'init-auto-complete)
