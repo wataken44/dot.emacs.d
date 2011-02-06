@@ -70,6 +70,7 @@
 (setq-default indent-tabs-mode nil)
 
 ; use iswitchb
-(iswitchb-mode 1)
+; don't use iswitchb because use anything
+; (iswitchb-mode 1)
 
 (provide 'init-misc)
