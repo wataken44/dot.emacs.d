@@ -45,8 +45,7 @@
 (global-set-key "\C-cR" 'query-replace)
 (global-set-key "\C-c\M-r" 'replace-regexp)
 (global-set-key "\C-ci" 'indent-region)
-(global-set-key "\C-t" 'next-user-buffer)
-(global-set-key "\C-cT" 'next-buffer)
+(global-set-key (kbd "<C-tab>") 'next-user-buffer)
 
 ; do not show startup message
 (setq inhibit-startup-message t)
