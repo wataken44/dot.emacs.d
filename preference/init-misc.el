@@ -5,18 +5,17 @@
 (global-font-lock-mode t)
 
 ; define function
-; define function
 ; compare buffer with buffer-name
 ; used in next-user-buffer
 (defun buffer-name-less (left-buffer right-buffer)
   (string< (buffer-name left-buffer) (buffer-name right-buffer)))
 
-;; switch to next user's buffer
-;; name of user's buffer start with [^ *] 
-(defun next-user-buffer ()
-  (interactive)
-  ;; exceptional buffer to be switched
-  (setq no-ignore-buffer-alist '("*shell*" "*scratch*"))
+;; exceptional buffer to be switched
+(setq stub-special-buffer-alist '("*shell*" "*scratch*"))
+
+; switch to next user's buffer
+; name of user's buffer start with [^ *] 
+(defun switch-to-user-buffer (switch-dir)
   ;; sort buffer-list
   (setq sorted-buffer-alist (sort (buffer-list) 'buffer-name-less))
   ;; get current buffer index in sorted buffer-list
@@ -25,27 +24,41 @@
         (- buffer-list-length
            (length (member (current-buffer) sorted-buffer-alist))))
   ;; search and jump to next user buffer
-  ;; start from current-buffer-index + 1 and wrap around
+  ;; start from current-buffer-index + switch-dir and wrap around
   (dotimes (i buffer-list-length)
     (setq buffer-index
-          (% (+ i current-buffer-index 1) buffer-list-length))
+          (% (+ current-buffer-index
+                buffer-list-length
+                (* (+ 1 i) switch-dir)) 
+             buffer-list-length))
     (setq dest-buffer (nth buffer-index sorted-buffer-alist))
     (setq dest-buffer-name (buffer-name dest-buffer))
     (if (or (string-match-p "^[^ *]" dest-buffer-name)
-            (member dest-buffer-name no-ignore-buffer-alist))
+            (member dest-buffer-name stub-special-buffer-alist))
         (progn (switch-to-buffer dest-buffer)
                (return t))
       )
     )
   )
 
+;; switch forward
+(defun switch-to-user-buffer-next ()
+  (interactive)
+  (progn (switch-to-user-buffer 1)))
+
+;; switch backward
+(defun switch-to-user-buffer-previous ()
+  (interactive)
+  (progn (switch-to-user-buffer -1)))
+
 ; short cut
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-cr" 'replace-string)
-(global-set-key "\C-cR" 'query-replace)
-(global-set-key "\C-c\M-r" 'replace-regexp)
-(global-set-key "\C-ci" 'indent-region)
-(global-set-key (kbd "<C-tab>") 'next-user-buffer)
+(global-set-key "\C-c\C-r" 'query-replace)
+(global-set-key "\C-cRr" 'replace-regexp)
+(global-set-key (kbd "<C-tab>") 'switch-to-user-buffer-next)
+(global-set-key (kbd "<C-S-tab>") 'switch-to-user-buffer-previous)
+(global-set-key "\C-t" 'switch-to-user-buffer-next)
 
 ; do not show startup message
 (setq inhibit-startup-message t)
