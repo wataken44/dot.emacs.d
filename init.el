@@ -47,6 +47,9 @@
 ; system-dependent init
 (require 'init-system-dependent)
 
+; color-thme init
+(require 'init-color-theme)
+
 ; autoinsert init
 (require 'init-autoinsert)
 
