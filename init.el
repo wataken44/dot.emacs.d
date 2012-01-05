@@ -70,3 +70,6 @@
 
 ; auto-complete init
 (require 'init-auto-complete-config)
+
+; flymake init
+(require 'init-flymake)
