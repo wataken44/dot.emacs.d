@@ -18,6 +18,7 @@
                ("\\.cpp$" . ["template.cpp" replace-template])
                ("\\.h$"   . ["template.h" replace-template])
                ("\\.py$"  . ["template.py" replace-template])
+               ("\\.py$"  . ["template.rb" replace-template])
                ) auto-insert-alist))
 
 (require 'cl)
