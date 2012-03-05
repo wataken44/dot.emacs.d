@@ -22,4 +22,26 @@
           '(lambda ()
              (flymake-mode t)))
 
+;; imported from http://moimoitei.blogspot.com/2010/05/flymake-in-emacs.html
+;; disable flymake over tramp
+
+(defadvice flymake-can-syntax-check-file
+  (after my-flymake-can-syntax-check-file activate)
+  (cond
+   ((not ad-return-value))
+   ;; disable over tramp
+   ((and (fboundp 'tramp-list-remote-buffers)
+         (memq (current-buffer) (tramp-list-remote-buffers)))
+    (setq ad-return-value nil))
+   ;; disable when read-only
+   ((not (file-writable-p buffer-file-name))
+    (setq ad-return-value nil))
+   ;; disable when command not available
+   ((let ((cmd (nth 0 (prog1
+                          (funcall (flymake-get-init-function buffer-file-name))
+                        (funcall (flymake-get-cleanup-function buffer-file-name))))))
+      (and cmd (not (executable-find cmd))))
+    (setq ad-return-value nil))
+   ))
+
 (provide 'init-flymake)
