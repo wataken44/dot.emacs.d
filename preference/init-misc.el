@@ -51,6 +51,24 @@
   (interactive)
   (progn (switch-to-user-buffer -1)))
 
+;; pretty jump;
+;; from http://d.hatena.ne.jp/h1mesuke/20070729/p1
+(defun my-beginning-of-line ()
+  "Move point to beginning of current line.
+If point is already at the beginning of line, move point to the first
+non-whitespace character on this line."
+  (interactive)
+  (if (bolp) (skip-syntax-forward "-")
+    (beginning-of-line)))
+
+(defun my-end-of-line ()
+  "Move point to end of current line.
+If point is already at the end of line, move point to the last
+non-whitespace character on this line."
+  (interactive)
+  (if (eolp) (skip-syntax-backward "-")
+    (end-of-line)))
+
 ; short cut
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-cr" 'replace-string)
@@ -59,6 +77,10 @@
 (global-set-key (kbd "<C-tab>") 'switch-to-user-buffer-next)
 (global-set-key (kbd "<C-S-tab>") 'switch-to-user-buffer-previous)
 (global-set-key "\C-t" 'switch-to-user-buffer-next)
+
+(global-set-key "\C-a" 'my-beginning-of-line)
+(global-set-key "\C-e" 'my-end-of-line)
+
 
 ; do not show startup message
 (setq inhibit-startup-message t)
