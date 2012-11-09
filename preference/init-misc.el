@@ -89,10 +89,10 @@ non-whitespace character on this line."
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ; do not show tool-bar
-(if tool-bar-mode (tool-bar-mode 0))
+(if (boundp 'tool-bar-mode) (tool-bar-mode 0))
 
 ; do not show menu-bar
-(if menu-bar-mode (menu-bar-mode 0))
+(if (boundp 'menu-bar-mode) (menu-bar-mode 0))
 
 ; show counter-side paren
 (show-paren-mode 1)
