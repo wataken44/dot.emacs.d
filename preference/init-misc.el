@@ -89,7 +89,7 @@ non-whitespace character on this line."
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ; do not show tool-bar
-(if (boundp 'tool-bar-mode) (tool-bar-mode 0))
+(if (functionp 'tool-bar-mode) (tool-bar-mode 0))
 
 ; do not show menu-bar
 (if (boundp 'menu-bar-mode) (menu-bar-mode 0))
