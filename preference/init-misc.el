@@ -73,11 +73,11 @@ non-whitespace character on this line."
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-cr" 'replace-string)
 (global-set-key "\C-c\C-r" 'query-replace)
-(global-set-key "\C-cRr" 'replace-regexp)
+(global-set-key "\C-cR" 'replace-regexp)
 (global-set-key (kbd "<C-tab>") 'switch-to-user-buffer-next)
 (global-set-key (kbd "<C-S-tab>") 'switch-to-user-buffer-previous)
 (global-set-key "\C-t" 'switch-to-user-buffer-next)
-
+(global-set-key "\C-q" 'other-window)
 (global-set-key "\C-a" 'my-beginning-of-line)
 (global-set-key "\C-e" 'my-end-of-line)
 
