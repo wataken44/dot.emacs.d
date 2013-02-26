@@ -103,6 +103,9 @@ non-whitespace character on this line."
 ; do not use tab by default
 (setq-default indent-tabs-mode nil)
 
+; use tango-dark color-theme
+(if (functionp 'load-theme) (load-theme 'tango-dark))
+
 ; use iswitchb
 ; don't use iswitchb because use anything
 ; (iswitchb-mode 1)
