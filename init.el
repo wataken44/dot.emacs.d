@@ -70,3 +70,6 @@
 
 ; flymake init
 (require 'init-flymake)
+
+; go language init
+(require 'go-mode-load)
